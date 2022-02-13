@@ -15,8 +15,7 @@ namespace SimpleUI.Controls
         #region Click events
         protected void MinimizeClick(object sender, RoutedEventArgs e)
         {
-            Colours.Colours.ControlBackground = new SolidColorBrush(Color.FromRgb(60, 0, 0));
-            // WindowState = WindowState.Minimized;
+            WindowState = WindowState.Minimized;
         }
 
         protected void RestoreClick(object sender, RoutedEventArgs e)
