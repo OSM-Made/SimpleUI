@@ -4,11 +4,6 @@
                     xmlns:colours="clr-namespace:SimpleUI.Colours"
                     xmlns:helpers="clr-namespace:SimpleUI.Helpers">
 
-    <!-- References -->
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/SimpleUI;component/Controls/WindowButton.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
-
     <helpers:RectangleConverter x:Key="rectConverter" />
 
     <Style TargetType="{x:Type local:SimpleWindow}"
@@ -22,7 +17,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:SimpleWindow}">
-                    <Border Background="{Binding Path=(colours:Colours.ControlBackground), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <Border Background="{DynamicResource ControlBackground}">
                         <Border.Clip>
                             <RectangleGeometry RadiusX="5" RadiusY="5">
 
@@ -52,7 +47,7 @@
                                 </Grid.RowDefinitions>
 
                                 <!-- Window Bar -->
-                                <Rectangle x:Name="MoveRectangle" Fill="{Binding Path=(colours:Colours.ControlDarkBackground)}"
+                                <Rectangle x:Name="MoveRectangle" Fill="{DynamicResource ControlDarkBackground}"
                                            Grid.ColumnSpan="2" Grid.RowSpan="1"/>
 
                                 <!-- Title Text -->
@@ -60,7 +55,7 @@
                                            Name="Title"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Left"
-                                       Foreground="{Binding Path=(colours:Colours.Text)}"
+                                       Foreground="{DynamicResource Text}"
                                        FontSize="13"
                                        Margin="8,5,0,5"/>
 

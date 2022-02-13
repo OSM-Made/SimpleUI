@@ -5,7 +5,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SimpleUI.Controls"
-             xmlns:colours="clr-namespace:SimpleUI.Colours"
              mc:Ignorable="d">
 
     <Button.Style>
@@ -23,7 +22,7 @@
                                 <Ellipse Height="15" Width="15" Name="circle">
                                     <Ellipse.Style>
                                         <Style TargetType="{x:Type Ellipse}">
-                                            <Setter Property="Fill" Value="{Binding Path=(colours:Colours.ControlBackground)}" />
+                                            <Setter Property="Fill" Value="{DynamicResource ControlBackground}" />
                                         </Style>
                                     </Ellipse.Style>
                                 </Ellipse>
@@ -35,10 +34,10 @@
 
                             <ControlTemplate.Triggers>
                                 <Trigger SourceName="circle" Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="circle" Property="Fill" Value="{Binding Path=(colours:Colours.ControlHoverBackground)}"/>
+                                    <Setter TargetName="circle" Property="Fill" Value="{DynamicResource ControlHoverBackground}"/>
                                 </Trigger>
                                 <Trigger SourceName="img" Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="circle" Property="Fill" Value="{Binding Path=(colours:Colours.ControlHoverBackground)}"/>
+                                    <Setter TargetName="circle" Property="Fill" Value="{DynamicResource ControlHoverBackground}"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
 

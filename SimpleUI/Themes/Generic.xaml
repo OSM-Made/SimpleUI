@@ -2,10 +2,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:SimpleUI.Controls" 
-    xmlns:helpers="clr-namespace:SimpleUI.Helpers">
+    xmlns:helpers="clr-namespace:SimpleUI.Helpers"
+    xmlns:skins="clr-namespace:SimpleUI.Skins">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/SimpleUI;component/Controls/WindowButton.xaml"/>
         <ResourceDictionary Source="/SimpleUI;component/Controls/SimpleWindow.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
