@@ -11,7 +11,9 @@
 
     <helpers:RectangleConverter x:Key="rectConverter" />
 
-    <Style TargetType="{x:Type local:CustomWindow}">
+    <Style TargetType="{x:Type local:SimpleWindow}"
+           BasedOn="{StaticResource {x:Type Window}}">
+        
         <Setter Property="WindowStyle" Value="None"/>
         <Setter Property="ResizeMode" Value="NoResize"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -19,17 +21,18 @@
 
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:CustomWindow}">
-                    <Border Background="{Binding Path=(colours:Colours.ControlBackground)}">
+                <ControlTemplate TargetType="{x:Type local:SimpleWindow}">
+                    <Border Background="{Binding Path=(colours:Colours.ControlBackground), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         <Border.Clip>
-                            <RectangleGeometry RadiusX="5"
-                           RadiusY="5">
-                                
+                            <RectangleGeometry RadiusX="5" RadiusY="5">
+
                                 <!-- Rounded Border -->
                                 <RectangleGeometry.Rect>
                                     <MultiBinding Converter="{StaticResource rectConverter}">
-                                        <Binding Path="ActualWidth" RelativeSource="{RelativeSource AncestorType={x:Type Window}}" />
-                                        <Binding Path="ActualHeight" RelativeSource="{RelativeSource AncestorType={x:Type Window}}" />
+                                        <Binding Path="ActualWidth" 
+                                                 RelativeSource="{RelativeSource AncestorType={x:Type Window}}" />
+                                        <Binding Path="ActualHeight" 
+                                                 RelativeSource="{RelativeSource AncestorType={x:Type Window}}" />
                                     </MultiBinding>
                                 </RectangleGeometry.Rect>
 
@@ -54,6 +57,7 @@
 
                                 <!-- Title Text -->
                                 <TextBlock Text="{TemplateBinding Title}"
+                                           Name="Title"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Left"
                                        Foreground="{Binding Path=(colours:Colours.Text)}"
@@ -66,20 +70,17 @@
                                         HorizontalAlignment="Right" 
                                         Margin="0,5,3,5">
 
-                                    <Button x:Name="minimizeButton"
-                                        Style="{StaticResource WindowButton}" 
-                                        Margin="3,3,3,3"
-                                        local:WindowButton.ImagePath="/SimpleUI;component/Resources/Minimize.png">
-                                    </Button>
+                                    <local:CircleButton x:Name="minimizeButton"
+                                        ImagePath="/SimpleUI;component/Resources/Minimize.png">
+                                    </local:CircleButton>
 
-                                    <Button x:Name="restoreButton" 
-                                        Style="{StaticResource WindowButton}" 
-                                        Margin="3,3,3,3"
-                                        local:WindowButton.ImagePath="/SimpleUI;component/Resources/Maximize.png"/>
-                                    <Button x:Name="closeButton" 
-                                        Style="{StaticResource WindowButton}" 
-                                        Margin="3,3,3,3"
-                                        local:WindowButton.ImagePath="/SimpleUI;component/Resources/Close.png"/>
+                                    <local:CircleButton x:Name="restoreButton"
+                                        ImagePath="/SimpleUI;component/Resources/Maximize.png">
+                                    </local:CircleButton>
+
+                                    <local:CircleButton x:Name="closeButton"
+                                        ImagePath="/SimpleUI;component/Resources/Close.png">
+                                    </local:CircleButton>
 
                                 </StackPanel>
 
@@ -92,7 +93,7 @@
                                 </Grid>
 
                             </Grid>
-                            
+
                             <!-- Resize Grips -->
                             <Grid x:Name="resizeGrid">
                                 <Rectangle

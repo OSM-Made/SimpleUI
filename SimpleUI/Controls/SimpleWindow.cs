@@ -7,10 +7,11 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using SimpleUI.Colours;
 
 namespace SimpleUI.Controls
 {
-    public partial class CustomWindow : Window
+    public partial class SimpleWindow : Window
     {
         #region Click events
         protected void MinimizeClick(object sender, RoutedEventArgs e)
@@ -31,7 +32,7 @@ namespace SimpleUI.Controls
 
         #region Resizeable Window
 
-        private HwndSource _hwndSource;
+        private HwndSource? _hwndSource;
 
         protected override void OnInitialized(EventArgs e)
         {
@@ -46,8 +47,8 @@ namespace SimpleUI.Controls
 
         protected void ResizeRectangle_MouseMove(Object sender, MouseEventArgs e)
         {
-            Rectangle rectangle = sender as Rectangle;
-            switch (rectangle.Name)
+            Rectangle? rectangle = sender as Rectangle;
+            switch (rectangle?.Name)
             {
                 case "top":
                     Cursor = Cursors.SizeNS;
@@ -89,8 +90,8 @@ namespace SimpleUI.Controls
 
         protected void ResizeRectangle_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Rectangle rectangle = sender as Rectangle;
-            switch (rectangle.Name)
+            Rectangle? rectangle = sender as Rectangle;
+            switch (rectangle?.Name)
             {
                 case "top":
                     Cursor = Cursors.SizeNS;
@@ -158,20 +159,20 @@ namespace SimpleUI.Controls
 
         #endregion
 
-        public CustomWindow()
+        public SimpleWindow()
             : base()
         {
             PreviewMouseMove += OnPreviewMouseMove;
         }
 
-        static CustomWindow()
+        static SimpleWindow()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomWindow), new FrameworkPropertyMetadata(typeof(CustomWindow)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(SimpleWindow), new FrameworkPropertyMetadata(typeof(SimpleWindow)));
         }
 
         public override void OnApplyTemplate()
         {
-            Button? minimizeButton = GetTemplateChild("minimizeButton") as Button;
+            CircleButton? minimizeButton = GetTemplateChild("minimizeButton") as CircleButton;
             if (minimizeButton != null)
                 minimizeButton.Click += MinimizeClick;
 
@@ -187,12 +188,12 @@ namespace SimpleUI.Controls
             if (MoveRectangle != null)
                 MoveRectangle.MouseDown += MoveRectangle_MouseDown;
 
-            Grid resizeGrid = GetTemplateChild("resizeGrid") as Grid;
+            Grid? resizeGrid = GetTemplateChild("resizeGrid") as Grid;
             if (resizeGrid != null)
             {
                 foreach (UIElement element in resizeGrid.Children)
                 {
-                    Rectangle resizeRectangle = element as Rectangle;
+                    Rectangle? resizeRectangle = element as Rectangle;
                     if (resizeRectangle != null)
                     {
                         resizeRectangle.PreviewMouseDown += ResizeRectangle_PreviewMouseDown;

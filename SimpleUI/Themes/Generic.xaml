@@ -6,7 +6,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/SimpleUI;component/Controls/WindowButton.xaml"/>
-        <ResourceDictionary Source="/SimpleUI;component/Controls/CustomWindow.xaml"/>
+        <ResourceDictionary Source="/SimpleUI;component/Controls/SimpleWindow.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

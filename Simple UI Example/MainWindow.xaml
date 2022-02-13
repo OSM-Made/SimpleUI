@@ -1,11 +1,11 @@
-﻿<control:CustomWindow x:Class="Simple_UI_Example.MainWindow"
+﻿<simpleControls:SimpleWindow x:Class="Simple_UI_Example.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:control="clr-namespace:SimpleUI.Controls;assembly=SimpleUI"
-        Title="MainWindow1" Height="450" Width="800"
-                      ResizeMode="CanResizeWithGrip">
-    
+        xmlns:simpleControls="clr-namespace:SimpleUI.Controls;assembly=SimpleUI"
+        Title="MainWindow1" Height="450" Width="800" ResizeMode="CanResizeWithGrip">
+
     <Grid>
         <TextBlock Text="Here goes the content!"/>
     </Grid>
-</control:CustomWindow>
+
+</simpleControls:SimpleWindow>
