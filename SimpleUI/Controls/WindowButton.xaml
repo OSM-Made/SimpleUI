@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:SimpleUI.Controls">
+                    xmlns:local="clr-namespace:SimpleUI.Controls"
+                    xmlns:colours="clr-namespace:SimpleUI.Colours">
 
     <Style BasedOn="{StaticResource {x:Type Button}}"
            TargetType="{x:Type Button}"
@@ -17,7 +18,7 @@
                             <Ellipse Height="15" Width="15" Name="circle">
                                 <Ellipse.Style>
                                     <Style TargetType="{x:Type Ellipse}">
-                                        <Setter Property="Fill" Value="#3C3F41" />
+                                        <Setter Property="Fill" Value="{Binding Path=(colours:Colours.ControlBackground)}" />
                                     </Style>
                                 </Ellipse.Style>
                             </Ellipse>
@@ -29,10 +30,10 @@
 
                         <ControlTemplate.Triggers>
                             <Trigger SourceName="circle" Property="IsMouseOver" Value="True">
-                                <Setter TargetName="circle" Property="Fill" Value="#5F4242"/>
+                                <Setter TargetName="circle" Property="Fill" Value="{Binding Path=(colours:Colours.ControlHoverBackground)}"/>
                             </Trigger>
                             <Trigger SourceName="img" Property="IsMouseOver" Value="True">
-                                <Setter TargetName="circle" Property="Fill" Value="#5F4242"/>
+                                <Setter TargetName="circle" Property="Fill" Value="{Binding Path=(colours:Colours.ControlHoverBackground)}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
 

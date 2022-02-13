@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:SimpleUI.Controls"
-                    xmlns:control="clr-namespace:SimpleUI.Controls;assembly=SimpleUI"
+                    xmlns:colours="clr-namespace:SimpleUI.Colours"
                     xmlns:helpers="clr-namespace:SimpleUI.Helpers">
 
     <!-- References -->
@@ -20,7 +20,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:CustomWindow}">
-                    <Border Background="#3C3F41">
+                    <Border Background="{Binding Path=(colours:Colours.ControlBackground)}">
                         <Border.Clip>
                             <RectangleGeometry RadiusX="5"
                            RadiusY="5">
@@ -37,59 +37,125 @@
                         </Border.Clip>
 
                         <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
 
-                            <!-- Window Bar -->
-                            <Rectangle x:Name="moveRectangle" Fill="#2C2D2E"
+                                <!-- Window Bar -->
+                                <Rectangle x:Name="MoveRectangle" Fill="{Binding Path=(colours:Colours.ControlDarkBackground)}"
                                            Grid.ColumnSpan="2" Grid.RowSpan="1"/>
 
-                            <!-- Title Text -->
-                            <TextBlock Text="{TemplateBinding Title}"
+                                <!-- Title Text -->
+                                <TextBlock Text="{TemplateBinding Title}"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Left"
-                                       Foreground="#DCDCDC"
+                                       Foreground="{Binding Path=(colours:Colours.Text)}"
                                        FontSize="13"
                                        Margin="8,5,0,5"/>
 
-                            <!-- Window Control Buttons -->
-                            <StackPanel Grid.Row="0" Grid.Column="1" 
+                                <!-- Window Control Buttons -->
+                                <StackPanel Grid.Row="0" Grid.Column="1" 
                                         Orientation="Horizontal" 
                                         HorizontalAlignment="Right" 
                                         Margin="0,5,3,5">
 
-                                <Button x:Name="minimizeButton"
+                                    <Button x:Name="minimizeButton"
                                         Style="{StaticResource WindowButton}" 
                                         Margin="3,3,3,3"
                                         local:WindowButton.ImagePath="/SimpleUI;component/Resources/Minimize.png">
-                                </Button>
-                                
-                                <Button x:Name="restoreButton" 
+                                    </Button>
+
+                                    <Button x:Name="restoreButton" 
                                         Style="{StaticResource WindowButton}" 
                                         Margin="3,3,3,3"
                                         local:WindowButton.ImagePath="/SimpleUI;component/Resources/Maximize.png"/>
-                                <Button x:Name="closeButton" 
+                                    <Button x:Name="closeButton" 
                                         Style="{StaticResource WindowButton}" 
                                         Margin="3,3,3,3"
                                         local:WindowButton.ImagePath="/SimpleUI;component/Resources/Close.png"/>
 
-                            </StackPanel>
+                                </StackPanel>
 
-                            <!-- Main Window BG -->
-                            <Grid Background="{TemplateBinding Background}"
+                                <!-- Main Window BG -->
+                                <Grid Background="{TemplateBinding Background}"
                                            Grid.Row="1" Grid.ColumnSpan="2" Margin="5,5,5,5">
-                                <AdornerDecorator>
-                                    <ContentPresenter/>
-                                </AdornerDecorator>
-                            </Grid>
+                                    <AdornerDecorator>
+                                        <ContentPresenter/>
+                                    </AdornerDecorator>
+                                </Grid>
 
+                            </Grid>
+                            
+                            <!-- Resize Grips -->
+                            <Grid x:Name="resizeGrid">
+                                <Rectangle
+                                    Stroke="{x:Null}"
+                                    Fill="Transparent"
+                                    VerticalAlignment="Top"
+                                    Height="5"
+                                    x:Name="top"
+                                    Margin="5,0,5,0" />
+                                <Rectangle
+                                    Stroke="{x:Null}"
+                                    Fill="Transparent"
+                                    x:Name="bottom"
+                                    Height="5"
+                                    VerticalAlignment="Bottom"
+                                    Margin="5,0,5,0" />
+                                <Rectangle
+                                    Stroke="{x:Null}"
+                                    Fill="Transparent"
+                                    HorizontalAlignment="Left"
+                                    Margin="0,5,0,5"
+                                    Width="5"
+                                    x:Name="left"/>
+                                <Rectangle
+                                    Stroke="{x:Null}"
+                                    Fill="Transparent"
+                                    Margin="0,5,0,5"
+                                    Width="5"
+                                    HorizontalAlignment="Right"
+                                    x:Name="right" />
+                                <Rectangle
+                                    Stroke="{x:Null}"
+                                    Fill="Transparent"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Bottom"
+                                    Width="5"
+                                    Height="5"
+                                    x:Name="bottomLeft" />
+                                <Rectangle
+                                    Stroke="{x:Null}"
+                                    Fill="Transparent"
+                                    VerticalAlignment="Bottom"
+                                    Height="5"
+                                    Width="5"
+                                    HorizontalAlignment="Right"
+                                    x:Name="bottomRight" />
+                                <Rectangle
+                                    Stroke="{x:Null}"
+                                    Fill="Transparent"
+                                    HorizontalAlignment="Right"
+                                    Width="5"
+                                    Height="5"
+                                    VerticalAlignment="Top"
+                                    x:Name="topRight" />
+                                <Rectangle
+                                    Stroke="{x:Null}"
+                                    Fill="Transparent"
+                                    HorizontalAlignment="Left"
+                                    Width="6"
+                                    VerticalAlignment="Top"
+                                    Height="5"
+                                    x:Name="topLeft" />
+                            </Grid>
                         </Grid>
 
                     </Border>
