@@ -17,7 +17,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Add_Target.png" />
+    <None Remove="Resources\Settings.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SimpleUI\SimpleUI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Add_Target.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Settings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

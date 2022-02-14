@@ -29,7 +29,14 @@ namespace Simple_UI_Example
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            if (SkinResourceDictionary.CurrentTheme == SkinResourceDictionary.Themes.Red)
+            {
+                SkinResourceDictionary.ChangeTheme(SkinResourceDictionary.Themes.Blue);
+            }
+            else 
+            {
+                SkinResourceDictionary.ChangeTheme(SkinResourceDictionary.Themes.Red);
+            }
         }
     }
 }

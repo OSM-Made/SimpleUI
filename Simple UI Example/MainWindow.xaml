@@ -5,11 +5,52 @@
         Title="MainWindow1" Height="450" Width="800">
 
     <Grid>
-        <TextBlock Text="Here goes the content!"/>
+        <simpleControls:SimpleToolBar Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Left">
 
-        <Button Content="Test Theme" Width="100" Height="50" Click="Button_Click">
-            
-        </Button>
+                <Menu VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Margin="5 2 0 3"
+                        Background="Transparent">
+                    <MenuItem Width="23">
+                        <MenuItem.Icon>
+                            <Image VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Stretch="UniformToFill"
+                                   Height="19"
+                                   Margin="0"
+                                   Source="/Resources/Settings.png"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="Test"/>
+                    </MenuItem>
+
+                </Menu>
+                
+                <simpleControls:SimpleButton VerticalAlignment="Center"
+                                             HorizontalAlignment="Left"
+                                             Margin="5 1 5 0"
+                                             BorderBrush="Transparent">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="3 2 3 2">
+                        <Image VerticalAlignment="Center"
+                                Stretch="UniformToFill"
+                                Height="13"
+                                Margin="0 0 3 0"
+                                Source="/Resources/Add_Target.png">
+
+                        </Image>
+                        <TextBlock FontFamily="Segoe UI" FontSize="9pt" Text="Add Target"/>
+                    </StackPanel>
+                </simpleControls:SimpleButton>
+    
+            </StackPanel>
+        </simpleControls:SimpleToolBar>
+        
+        <simpleControls:SimpleButton Content="Test Theme" Width="100" Height="50" Click="Button_Click">
+
+        </simpleControls:SimpleButton>
     </Grid>
 
 </simpleControls:SimpleWindow>
