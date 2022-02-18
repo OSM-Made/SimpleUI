@@ -29,6 +29,10 @@ namespace Simple_UI_Example
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            var dialog = new SimpleMessageBox(this, "Message Box body text...", "Message Box Title Text...", MessageBoxButton.OK);
+            dialog.Owner = this;
+            dialog.ShowDialog();
+
             if (SkinResourceDictionary.CurrentTheme == SkinResourceDictionary.Themes.Red)
             {
                 SkinResourceDictionary.ChangeTheme(SkinResourceDictionary.Themes.Blue);

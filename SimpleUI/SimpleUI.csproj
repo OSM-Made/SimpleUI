@@ -9,11 +9,16 @@
   <ItemGroup>
     <None Remove="Resources\Close.png" />
     <None Remove="Resources\Maximize.png" />
+    <None Remove="Resources\MessageBoxIcons\error.png" />
+    <None Remove="Resources\MessageBoxIcons\info.png" />
+    <None Remove="Resources\MessageBoxIcons\warning.png" />
     <None Remove="Resources\Minimize.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
+    <Resource Include="Resources\MessageBoxIcons\warning.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +26,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Maximize.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\MessageBoxIcons\error.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\MessageBoxIcons\info.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Minimize.png">
