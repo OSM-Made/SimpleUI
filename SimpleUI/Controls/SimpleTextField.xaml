@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="SimpleUI.Controls.SimpleTextField"
+             x:Name="SimpleTextFieldElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SimpleUI.Controls"
+             mc:Ignorable="d"
+             MinHeight="35"
+             d:DesignHeight="35" d:DesignWidth="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.RowSpan="2" Fill="#45494A"/>
+
+        <TextBlock Grid.Row="0" Text="{Binding ElementName=SimpleTextFieldElement, Path=FieldName}"
+                       FontSize="9"
+                       Foreground="{DynamicResource Text}"
+                       Margin="2 0 2 0"/>
+
+        <Viewbox Grid.Row="1"
+                 HorizontalAlignment="Left"
+                 Margin="2">
+            <TextBlock Text="{Binding ElementName=SimpleTextFieldElement, Path=FieldText}"
+                   Foreground="{DynamicResource Text}"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Margin="0 -3 0 0"/>
+        </Viewbox>
+    </Grid>
+    
+</UserControl>

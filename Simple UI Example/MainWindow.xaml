@@ -47,10 +47,13 @@
     
             </StackPanel>
         </simpleControls:SimpleToolBar>
-        
-        <simpleControls:SimpleButton Content="Test Theme" Width="100" Height="50" Click="Button_Click">
 
-        </simpleControls:SimpleButton>
+        <StackPanel Margin="50">
+            <simpleControls:SimpleCircleProgressBar Name="TestProgress" Width="150" Height="150" ProgressPercentage="55" />
+            <Slider Width="200" ValueChanged="DoSlider" Minimum="0" Maximum="100" ></Slider>
+            <simpleControls:SimpleButton Content="Test Theme" Width="100" Height="50" Click="Button_Click"/>
+        </StackPanel>
+
     </Grid>
 
 </simpleControls:SimpleWindow>

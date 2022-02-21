@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="SimpleUI.Controls.SimpleCircleProgressBar"
+             x:Name="SimpleCircleProgressBarElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SimpleUI.Controls"
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="150">
+    
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="5">
+            <!-- Background -->
+            <ed:Arc x:Name="BackgroundArc"
+                Fill="#45494A"
+                Width="Auto" Height="Auto"
+                Stretch="None"
+                ArcThickness="{Binding ElementName=SimpleCircleProgressBarElement, Path=Thickness}"
+                ArcThicknessUnit="Pixel"
+                EndAngle="360"/>
+
+            <!-- Progress Bar -->
+            <ed:Arc x:Name="ProgressArc"
+                Fill="#B04B4B"
+                Width="Auto" Height="Auto"
+                Stretch="None"
+                ArcThickness="{Binding ElementName=SimpleCircleProgressBarElement, Path=Thickness}"
+                ArcThicknessUnit="Pixel"
+                EndAngle="{Binding ElementName=SimpleCircleProgressBarElement, Path=ProgressAngle}"/>
+
+            <!-- Percentage Text -->
+            <TextBlock Text="{Binding ElementName=SimpleCircleProgressBarElement, Path=PercentText}"
+                   FontSize="{Binding ElementName=SimpleCircleProgressBarElement, Path=FontSize}"
+                   FontWeight="Bold"
+                   Foreground="#B04B4B"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

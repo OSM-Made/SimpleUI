@@ -27,20 +27,27 @@ namespace Simple_UI_Example
             InitializeComponent();
         }
 
+        private void DoSlider(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            var slider = (Slider)sender;
+            TestProgress.ProgressPercentage = (int)slider.Value;
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new SimpleMessageBox(this, "Message Box body text...", "Message Box Title Text...", MessageBoxButton.OK);
-            dialog.Owner = this;
-            dialog.ShowDialog();
+            TestProgress.ProgressPercentage = 45;
+            //var dialog = new SimpleMessageBox(this, "Message Box body text...", "Message Box Title Text...", MessageBoxButton.OK);
+            //dialog.Owner = this;
+            //dialog.ShowDialog();
 
-            if (SkinResourceDictionary.CurrentTheme == SkinResourceDictionary.Themes.Red)
+            /*if (SkinResourceDictionary.CurrentTheme == SkinResourceDictionary.Themes.Red)
             {
                 SkinResourceDictionary.ChangeTheme(SkinResourceDictionary.Themes.Blue);
             }
             else 
             {
                 SkinResourceDictionary.ChangeTheme(SkinResourceDictionary.Themes.Red);
-            }
+            }*/
         }
     }
 }
