@@ -20,12 +20,6 @@
              SizeToContent="WidthAndHeight"
              >
 
-    <Window.Resources>
-        <ResourceDictionary>
-            <helpers:RectangleConverter x:Key="rectConverter" />
-        </ResourceDictionary>
-    </Window.Resources>
-
     <Grid>
         <Grid.Effect>
             <DropShadowEffect BlurRadius="20" ShadowDepth="0" Opacity="0.5" 
@@ -35,7 +29,7 @@
         <Grid Margin="10">
             <Border
                 Name="mask"
-                Background="{DynamicResource ControlBackground}"
+                Background="{DynamicResource MessageBoxBackground}"
                 CornerRadius="5"
             />
 
@@ -56,7 +50,7 @@
 
                 <!-- Window Bar -->
                 <Rectangle x:Name="MoveRectangle" 
-                       Fill="{DynamicResource ControlDarkBackground}"
+                       Fill="{DynamicResource MessageBoxBar}"
                        Grid.ColumnSpan="2" Grid.RowSpan="1"
                        MouseDown="MoveRectangle_MouseDown"/>
 

@@ -22,7 +22,7 @@
         <Grid Margin="5">
             <!-- Background -->
             <ed:Arc x:Name="BackgroundArc"
-                Fill="#45494A"
+                Fill="{DynamicResource ProgressBarBackground}"
                 Width="Auto" Height="Auto"
                 Stretch="None"
                 ArcThickness="{Binding ElementName=SimpleCircleProgressBarElement, Path=Thickness}"
@@ -31,7 +31,7 @@
 
             <!-- Progress Bar -->
             <ed:Arc x:Name="ProgressArc"
-                Fill="#B04B4B"
+                Fill="{DynamicResource ProgressBarForeground}"
                 Width="Auto" Height="Auto"
                 Stretch="None"
                 ArcThickness="{Binding ElementName=SimpleCircleProgressBarElement, Path=Thickness}"
@@ -42,7 +42,7 @@
             <TextBlock Text="{Binding ElementName=SimpleCircleProgressBarElement, Path=PercentText}"
                    FontSize="{Binding ElementName=SimpleCircleProgressBarElement, Path=FontSize}"
                    FontWeight="Bold"
-                   Foreground="#B04B4B"
+                   Foreground="{DynamicResource ProgressBarText}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
         </Grid>

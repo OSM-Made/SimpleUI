@@ -23,20 +23,20 @@
 
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#5F6565"/>
+                                    <Setter Property="Background" Value="{DynamicResource ButtonHoverBackground}"/>
                                 </Trigger>
 
                                 <Trigger Property="IsPressed" Value="True">
-                                    <Setter Property="Background" Value="#2B2B2B"/>
+                                    <Setter Property="Background" Value="{DynamicResource ButtonPressedBackground}"/>
                                 </Trigger>
 
                                 <Trigger Property="IsFocused" Value="True">
-                                    <Setter Property="BorderBrush" Value="#BA6969"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource ButtonFocusBorder}"/>
                                 </Trigger>
 
                                 <Trigger Property="IsEnabled" Value="False">
                                     <Setter Property="Foreground" Value="{DynamicResource DisabledFont}"/>
-                                    <Setter Property="Background" Value="#525252"/>
+                                    <Setter Property="Background" Value="{DynamicResource ButtonDisabledBackground}"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -46,9 +46,9 @@
                 <Setter Property="Content" Value="Simple Button"/>
                 
                 <!-- Colours -->
-                <Setter Property="Background" Value="#45494A"/>
+                <Setter Property="Background" Value="{DynamicResource ButtonBackground}"/>
                 <Setter Property="Foreground" Value="{DynamicResource Text}"/>
-                <Setter Property="BorderBrush" Value="#5C5C5C"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorder}"/>
             </Style.Setters>
             
         </Style>

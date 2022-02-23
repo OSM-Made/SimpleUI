@@ -49,5 +49,17 @@ namespace Simple_UI_Example
                 SkinResourceDictionary.ChangeTheme(SkinResourceDictionary.Themes.Red);
             }*/
         }
+
+        private void SimpleSwitch_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!ThemeSwitch.IsToggled)
+            {
+                SkinResourceDictionary.ChangeTheme(SkinResourceDictionary.Themes.Blue);
+            }
+            else
+            {
+                SkinResourceDictionary.ChangeTheme(SkinResourceDictionary.Themes.Red);
+            }
+        }
     }
 }

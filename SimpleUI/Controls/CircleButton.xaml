@@ -22,7 +22,7 @@
                                 <Ellipse Height="15" Width="15" Name="circle">
                                     <Ellipse.Style>
                                         <Style TargetType="{x:Type Ellipse}">
-                                            <Setter Property="Fill" Value="{DynamicResource ControlBackground}" />
+                                            <Setter Property="Fill" Value="{DynamicResource CircleButtonBackground}" />
                                         </Style>
                                     </Ellipse.Style>
                                 </Ellipse>
@@ -34,10 +34,10 @@
 
                             <ControlTemplate.Triggers>
                                 <Trigger SourceName="circle" Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="circle" Property="Fill" Value="{DynamicResource ControlHoverBackground}"/>
+                                    <Setter TargetName="circle" Property="Fill" Value="{DynamicResource CircleButtonHoverBackground}"/>
                                 </Trigger>
                                 <Trigger SourceName="img" Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="circle" Property="Fill" Value="{DynamicResource ControlHoverBackground}"/>
+                                    <Setter TargetName="circle" Property="Fill" Value="{DynamicResource CircleButtonHoverBackground}"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
 

@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Rectangle Grid.RowSpan="2" Fill="#45494A"/>
+        <Rectangle Grid.RowSpan="2" Fill="{DynamicResource TextFieldBackground}"/>
 
         <TextBlock Grid.Row="0" Text="{Binding ElementName=SimpleTextFieldElement, Path=FieldName}"
                        FontSize="9"

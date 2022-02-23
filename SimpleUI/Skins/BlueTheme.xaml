@@ -1,11 +1,47 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <SolidColorBrush x:Key="ControlDarkBackground" Color="#2D2C2E"/>
-    <SolidColorBrush x:Key="ControlBackground" Color="#3C3F41"/>
-    <SolidColorBrush x:Key="ControlHoverBackground" Color="#545F89"/>
+    <!-- Hue 220 -->
 
+    <!-- Window Colours -->
+    <SolidColorBrush x:Key="WindowBar" Color="#2D2C2E"/>
+    <SolidColorBrush x:Key="WindowBackground" Color="#3C3F41"/>
+
+    <!-- Text Colours -->
     <SolidColorBrush x:Key="Text" Color="#DCDCDC"/>
     <SolidColorBrush x:Key="DisabledText" Color="#999999"/>
+
+    <!-- Circle Button Colours -->
+    <SolidColorBrush x:Key="CircleButtonBackground" Color="#3C3F41"/>
+    <SolidColorBrush x:Key="CircleButtonHoverBackground" Color="#54668A"/>
+
+    <!-- Switch Colours -->
+    <SolidColorBrush x:Key="SwitchBackground" Color="#45494A"/>
+    <SolidColorBrush x:Key="SwitchButton" Color="#4B6DB0"/>
+
+    <!-- Button Colours -->
+    <SolidColorBrush x:Key="ButtonHoverBackground" Color="#5F6565"/>
+    <SolidColorBrush x:Key="ButtonPressedBackground" Color="#2B2B2B"/>
+    <SolidColorBrush x:Key="ButtonFocusBorder" Color="#6984BB"/>
+    <SolidColorBrush x:Key="ButtonDisabledBackground" Color="#525252"/>
+    <SolidColorBrush x:Key="ButtonBackground" Color="#45494A"/>
+    <SolidColorBrush x:Key="ButtonBorder" Color="#45494A"/>
+
+    <!-- ProgressBar Colours -->
+    <SolidColorBrush x:Key="ProgressBarBackground" Color="#45494A"/>
+    <SolidColorBrush x:Key="ProgressBarForeground" Color="#4C6EB1"/>
+    <SolidColorBrush x:Key="ProgressBarText" Color="#4C6EB1"/>
+
+    <!-- MessageBox Colours -->
+    <SolidColorBrush x:Key="MessageBoxBar" Color="#2D2C2E"/>
+    <SolidColorBrush x:Key="MessageBoxBackground" Color="#3C3F41"/>
+
+    <!-- Text Field Colours -->
+    <SolidColorBrush x:Key="TextFieldBackground" Color="#45494A"/>
+
+    <!-- ToolBar Colours -->
+    <SolidColorBrush x:Key="ToolBarBackground" Color="#3C3F41"/>
+    <SolidColorBrush x:Key="ToolBarSeparationA" Color="#333333"/>
+    <SolidColorBrush x:Key="ToolBarSeparationB" Color="#515151"/>
 
 </ResourceDictionary>

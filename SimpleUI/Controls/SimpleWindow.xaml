@@ -7,7 +7,7 @@
 
     <Style TargetType="{x:Type local:SimpleWindow}"
            BasedOn="{StaticResource {x:Type Window}}">
-        
+
         <Setter Property="WindowStyle" Value="None"/>
         <Setter Property="ResizeMode" Value="NoResize"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -17,44 +17,46 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:SimpleWindow}">
                     <Grid>
-                        <Border Background="{DynamicResource ControlBackground}">
-
-                            <Border.Effect>
-                                <DropShadowEffect/>
-                            </Border.Effect>
-
-                            <!-- Rounded Border -->
-                            <Border.Clip>
-                                <RectangleGeometry RadiusX="5" RadiusY="5">
-                                    <RectangleGeometry.Rect>
-                                        <MultiBinding Converter="{StaticResource rectConverter}">
-                                            <Binding Path="ActualWidth" 
-                                                 RelativeSource="{RelativeSource AncestorType={x:Type Window}}" />
-                                            <Binding Path="ActualHeight" 
-                                                 RelativeSource="{RelativeSource AncestorType={x:Type Window}}" />
-                                        </MultiBinding>
-                                    </RectangleGeometry.Rect>
-                                </RectangleGeometry>
-                            </Border.Clip>
+                        
+                        <!-- Drop Shaddow -->
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="20" 
+                                              ShadowDepth="0" 
+                                              Opacity="0.5" 
+                                              Color="Black" />
+                        </Grid.Effect>
+                        
+                        <!-- Grid with offset to sho the drop shaddow. -->
+                        <Grid Margin="10">
+                            
+                            <!-- Mask to make the corners rounded. -->
+                            <Border Name="mask"
+                                    Background="{DynamicResource WindowBackground}"
+                                    CornerRadius="5"/>
 
                             <Grid>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
+                                
+                                <!-- Opacity Mask to clip all contents to rounded corners. -->
+                                <Grid.OpacityMask>
+                                    <VisualBrush Visual="{Binding ElementName=mask}"/>
+                                </Grid.OpacityMask>
 
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
 
-                                    <!-- Window Bar -->
-                                    <Rectangle x:Name="MoveRectangle" Fill="{DynamicResource ControlDarkBackground}"
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <!-- Window Bar -->
+                                <Rectangle x:Name="MoveRectangle" Fill="{DynamicResource WindowBar}"
                                            Grid.ColumnSpan="2" Grid.RowSpan="1"/>
 
-                                    <!-- Title Text -->
-                                    <TextBlock Text="{TemplateBinding Title}"
+                                <!-- Title Text -->
+                                <TextBlock Text="{TemplateBinding Title}"
                                            Name="Title"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Left"
@@ -62,66 +64,65 @@
                                        FontSize="13"
                                        Margin="8,5,0,5"/>
 
-                                    <!-- Window Control Buttons -->
-                                    <StackPanel Grid.Row="0" Grid.Column="1" 
+                                <!-- Window Control Buttons -->
+                                <StackPanel Grid.Row="0" Grid.Column="1" 
                                         Orientation="Horizontal" 
                                         HorizontalAlignment="Right" 
                                         Margin="0,5,3,5">
 
-                                        <local:CircleButton x:Name="minimizeButton"
+                                    <local:CircleButton x:Name="minimizeButton"
                                         ImagePath="/SimpleUI;component/Resources/Minimize.png">
-                                        </local:CircleButton>
+                                    </local:CircleButton>
 
-                                        <local:CircleButton x:Name="restoreButton"
+                                    <local:CircleButton x:Name="restoreButton"
                                         ImagePath="/SimpleUI;component/Resources/Maximize.png">
-                                        </local:CircleButton>
+                                    </local:CircleButton>
 
-                                        <local:CircleButton x:Name="closeButton"
+                                    <local:CircleButton x:Name="closeButton"
                                         ImagePath="/SimpleUI;component/Resources/Close.png">
-                                        </local:CircleButton>
+                                    </local:CircleButton>
 
-                                    </StackPanel>
+                                </StackPanel>
 
-                                    <!-- Main Window BG -->
-                                    <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0">
-                                        <AdornerDecorator>
-                                            <ContentPresenter/>
-                                        </AdornerDecorator>
-                                    </Grid>
-
+                                <!-- Main Window BG -->
+                                <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0">
+                                    <AdornerDecorator>
+                                        <ContentPresenter/>
+                                    </AdornerDecorator>
                                 </Grid>
+                            </Grid>
 
-                                <!-- Resize Grips -->
-                                <Grid x:Name="resizeGrid">
-                                    <Rectangle
+                            <!-- Resize Grips -->
+                            <Grid x:Name="resizeGrid">
+                                <Rectangle
                                     Stroke="{x:Null}"
                                     Fill="Transparent"
                                     VerticalAlignment="Top"
                                     Height="5"
                                     x:Name="top"
                                     Margin="5,0,5,0" />
-                                    <Rectangle
+                                <Rectangle
                                     Stroke="{x:Null}"
                                     Fill="Transparent"
                                     x:Name="bottom"
                                     Height="5"
                                     VerticalAlignment="Bottom"
                                     Margin="5,0,5,0" />
-                                    <Rectangle
+                                <Rectangle
                                     Stroke="{x:Null}"
                                     Fill="Transparent"
                                     HorizontalAlignment="Left"
                                     Margin="0,5,0,5"
                                     Width="5"
                                     x:Name="left"/>
-                                    <Rectangle
+                                <Rectangle
                                     Stroke="{x:Null}"
                                     Fill="Transparent"
                                     Margin="0,5,0,5"
                                     Width="5"
                                     HorizontalAlignment="Right"
                                     x:Name="right" />
-                                    <Rectangle
+                                <Rectangle
                                     Stroke="{x:Null}"
                                     Fill="Transparent"
                                     HorizontalAlignment="Left"
@@ -129,7 +130,7 @@
                                     Width="5"
                                     Height="5"
                                     x:Name="bottomLeft" />
-                                    <Rectangle
+                                <Rectangle
                                     Stroke="{x:Null}"
                                     Fill="Transparent"
                                     VerticalAlignment="Bottom"
@@ -137,7 +138,7 @@
                                     Width="5"
                                     HorizontalAlignment="Right"
                                     x:Name="bottomRight" />
-                                    <Rectangle
+                                <Rectangle
                                     Stroke="{x:Null}"
                                     Fill="Transparent"
                                     HorizontalAlignment="Right"
@@ -145,7 +146,7 @@
                                     Height="5"
                                     VerticalAlignment="Top"
                                     x:Name="topRight" />
-                                    <Rectangle
+                                <Rectangle
                                     Stroke="{x:Null}"
                                     Fill="Transparent"
                                     HorizontalAlignment="Left"
@@ -153,16 +154,11 @@
                                     VerticalAlignment="Top"
                                     Height="5"
                                     x:Name="topLeft" />
-                                </Grid>
                             </Grid>
-
-                        </Border>
+                        </Grid>
                     </Grid>
-
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
     </Style>
-
 </ResourceDictionary>

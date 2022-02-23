@@ -16,19 +16,19 @@
                             <!-- Background -->
                             <Rectangle VerticalAlignment="Stretch" 
                                     HorizontalAlignment="Stretch"
-                                    Fill="{DynamicResource ControlBackground}"
+                                    Fill="{DynamicResource ToolBarBackground}"
                                     Margin="0 0 0 2"/>
 
                             <!-- Seperation Bar -->
                             <Rectangle VerticalAlignment="Bottom" 
                                     HorizontalAlignment="Stretch"
                                     Height="1"
-                                    Fill="#333333"
+                                    Fill="{DynamicResource ToolBarSeparationA}"
                                     Margin="0 0 0 1"/>
                             <Rectangle VerticalAlignment="Bottom" 
                                     HorizontalAlignment="Stretch"
                                     Height="1"
-                                    Fill="#515151"/>
+                                    Fill="{DynamicResource ToolBarSeparationB}"/>
 
                             <Grid>
                                 <AdornerDecorator>

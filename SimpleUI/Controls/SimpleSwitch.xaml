@@ -9,7 +9,7 @@
              d:DesignHeight="20" d:DesignWidth="40">
 
     <Grid MouseDown="Grid_MouseDown">
-        <Border x:Name="BackgroundBoarder" Background="#FFD1D1D1" CornerRadius="{Binding ElementName=SwitchElement, Path=HalfHeight}">
+        <Border x:Name="BackgroundBoarder" Background="{DynamicResource SwitchBackground}" CornerRadius="{Binding ElementName=SwitchElement, Path=HalfHeight}">
 
             <Grid Margin="1.5">
                 <Grid.ColumnDefinitions>
@@ -26,7 +26,7 @@
                             Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Path=ActualHeight, Mode=OneWay}">
                         <Ellipse x:Name="ToggleEllipse"
                          Canvas.Left="0"
-                         Fill="#FF2F8FD1" 
+                         Fill="{DynamicResource SwitchButton}" 
                          VerticalAlignment="Stretch" 
                          HorizontalAlignment="Center"
                          Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Path=ActualHeight, Mode=OneWay}"
