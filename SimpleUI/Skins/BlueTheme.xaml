@@ -25,12 +25,24 @@
     <SolidColorBrush x:Key="ButtonFocusBorder" Color="#6984BB"/>
     <SolidColorBrush x:Key="ButtonDisabledBackground" Color="#525252"/>
     <SolidColorBrush x:Key="ButtonBackground" Color="#45494A"/>
-    <SolidColorBrush x:Key="ButtonBorder" Color="#45494A"/>
+    <SolidColorBrush x:Key="ButtonBorder" Color="#5C5C5C"/>
 
     <!-- ProgressBar Colours -->
     <SolidColorBrush x:Key="ProgressBarBackground" Color="#45494A"/>
     <SolidColorBrush x:Key="ProgressBarForeground" Color="#4C6EB1"/>
     <SolidColorBrush x:Key="ProgressBarText" Color="#4C6EB1"/>
+
+    <!-- ComboBox Colours -->
+    <SolidColorBrush x:Key="ComboBoxBackground" Color="#45494A"/>
+    <SolidColorBrush x:Key="ComboBoxOutline" Color="#5C5C5C"/>
+    <SolidColorBrush x:Key="ComboBoxOutlineFocus" Color="#6984BB"/>
+    <SolidColorBrush x:Key="ComboBoxArrow" Color="#7A8084"/>
+    <SolidColorBrush x:Key="ComboBoxSelection" Color="#4C6EB1"/>
+
+    <!-- TextBox Colours -->
+    <SolidColorBrush x:Key="TextBoxBackground" Color="#45494A"/>
+    <SolidColorBrush x:Key="TextBoxOutline" Color="#5C5C5C"/>
+    <SolidColorBrush x:Key="TextBoxOutlineFocus" Color="#6984BB"/>
 
     <!-- MessageBox Colours -->
     <SolidColorBrush x:Key="MessageBoxBar" Color="#2D2C2E"/>

@@ -53,6 +53,17 @@
             <Slider Width="200" ValueChanged="DoSlider" Minimum="0" Maximum="100" ></Slider>
             <simpleControls:SimpleButton Content="Test Theme" Width="100" Height="50" Click="Button_Click"/>
             <simpleControls:SimpleSwitch Name="ThemeSwitch" Height="15" MouseDown="SimpleSwitch_MouseDown" IsToggled="True"/>
+
+            <simpleControls:SimpleComboBox Text="Red"
+                      Width="60"
+                      Height="20">
+                <ComboBoxItem Content = "Red" />
+                <ComboBoxItem Content = "Blue" />
+            </simpleControls:SimpleComboBox>
+
+            <simpleControls:SimpleTextBox Width="60" Height="18">
+                
+            </simpleControls:SimpleTextBox>
         </StackPanel>
 
     </Grid>
