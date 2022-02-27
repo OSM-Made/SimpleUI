@@ -31,16 +31,17 @@ namespace SimpleUI.Controls
         public int ProgressPercentage
         {
             get { return (int)GetValue(ProgressPercentageProperty); }
-            set 
-            { 
-                SetValue(ProgressPercentageProperty, value);
-                ProgressAngle = value * 3.6;
-                PercentText = $"{value}%";
-            }
+            set { SetValue(ProgressPercentageProperty, value); }
         }
 
         public static readonly DependencyProperty ProgressPercentageProperty =
-            DependencyProperty.Register("ProgressPercentage", typeof(int), typeof(SimpleCircleProgressBar), new PropertyMetadata(0));
+            DependencyProperty.Register("ProgressPercentage", typeof(int), typeof(SimpleCircleProgressBar), new PropertyMetadata(0, ProgressPercentageProperty_Changed));
+
+        private static void ProgressPercentageProperty_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((SimpleCircleProgressBar)d).ProgressAngle = ((int)e.NewValue) * 3.6;
+            ((SimpleCircleProgressBar)d).PercentText = $"{((int)e.NewValue)}%";
+        }
 
         public int Thickness
         {
