@@ -1,5 +1,7 @@
 ﻿
 using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
@@ -175,11 +177,11 @@ namespace SimpleUI.Controls
             if (minimizeButton != null)
                 minimizeButton.Click += MinimizeClick;
 
-            Button? restoreButton = GetTemplateChild("restoreButton") as Button;
+            CircleButton? restoreButton = GetTemplateChild("restoreButton") as CircleButton;
             if (restoreButton != null)
                 restoreButton.Click += RestoreClick;
 
-            Button? closeButton = GetTemplateChild("closeButton") as Button;
+            CircleButton? closeButton = GetTemplateChild("closeButton") as CircleButton;
             if (closeButton != null)
                 closeButton.Click += CloseClick;
 

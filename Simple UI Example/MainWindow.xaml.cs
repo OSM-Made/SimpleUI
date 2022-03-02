@@ -35,7 +35,7 @@ namespace Simple_UI_Example
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TestProgress.ProgressPercentage = 45;
+            //TestProgress.ProgressPercentage = 45;
             //var dialog = new SimpleMessageBox(this, "Message Box body text...", "Message Box Title Text...", MessageBoxButton.OK);
             //dialog.Owner = this;
             //dialog.ShowDialog();
