@@ -19,7 +19,9 @@
 
                             <Grid>
                                 <!-- Button -->
-                                <Ellipse Height="15" Width="15" Name="circle">
+                                <Ellipse Height="15" Width="15" Name="circle"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center">
                                     <Ellipse.Style>
                                         <Style TargetType="{x:Type Ellipse}">
                                             <Setter Property="Fill" Value="{DynamicResource CircleButtonBackground}" />
@@ -29,7 +31,11 @@
 
                                 <!-- Icon -->
                                 <Image Source="{Binding ElementName=CircleButtonElement, Path=ImagePath}" 
-                                   Width="10" Height="10" Name="img"/>
+                                       Width="10" Height="10" Name="img"
+                                       RenderOptions.BitmapScalingMode="Fant"
+                                       RenderOptions.EdgeMode="Aliased"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
                             </Grid>
 
                             <ControlTemplate.Triggers>
