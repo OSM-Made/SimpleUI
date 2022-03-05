@@ -35,19 +35,19 @@ namespace Simple_UI_Example
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //TestProgress.ProgressPercentage = 45;
-            //var dialog = new SimpleMessageBox(this, "Message Box body text...", "Message Box Title Text...", MessageBoxButton.OK);
-            //dialog.Owner = this;
-            //dialog.ShowDialog();
+            var result = SimpleMessageBox.ShowInformation(this, "Would you like to change the theme?", "SimpleUI Example: Theme Popup", SimpleUI.SimpleDialogButton.YesNo);
 
-            /*if (SkinResourceDictionary.CurrentTheme == SkinResourceDictionary.Themes.Red)
+            if(result == SimpleUI.SimpleDialogResult.Yes)
             {
-                SkinResourceDictionary.ChangeTheme(SkinResourceDictionary.Themes.Blue);
+                if (SkinResourceDictionary.CurrentTheme == SkinResourceDictionary.Themes.Red)
+                {
+                    SkinResourceDictionary.ChangeTheme(SkinResourceDictionary.Themes.Blue);
+                }
+                else
+                {
+                    SkinResourceDictionary.ChangeTheme(SkinResourceDictionary.Themes.Red);
+                }
             }
-            else 
-            {
-                SkinResourceDictionary.ChangeTheme(SkinResourceDictionary.Themes.Red);
-            }*/
         }
 
         private void SimpleSwitch_MouseDown(object sender, MouseButtonEventArgs e)
