@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SimpleUI.Skins;
+using Simple_UI_Example.Dialogs;
 
 namespace Simple_UI_Example
 {
@@ -35,7 +36,10 @@ namespace Simple_UI_Example
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var result = SimpleMessageBox.ShowInformation(this, "Would you like to change the theme?", "SimpleUI Example: Theme Popup", SimpleUI.SimpleDialogButton.YesNo);
+            var result = TestDialog.ShowDialog(this);
+            Console.WriteLine($"Result = {result.ToString()}");
+
+            /*var result = SimpleMessageBox.ShowInformation(this, "Would you like to change the theme?", "SimpleUI Example: Theme Popup", SimpleUI.SimpleDialogButton.YesNo);
 
             if(result == SimpleUI.SimpleDialogResult.Yes)
             {
@@ -47,7 +51,7 @@ namespace Simple_UI_Example
                 {
                     SkinResourceDictionary.ChangeTheme(SkinResourceDictionary.Themes.Red);
                 }
-            }
+            }*/
         }
 
         private void SimpleSwitch_MouseDown(object sender, MouseButtonEventArgs e)

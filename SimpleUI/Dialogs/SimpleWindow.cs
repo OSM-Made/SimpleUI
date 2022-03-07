@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SimpleUI.Controls
 {
@@ -29,6 +30,7 @@ namespace SimpleUI.Controls
         {
             Close();
         }
+
         #endregion
 
         #region Resizeable Window

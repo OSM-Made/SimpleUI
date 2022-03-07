@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:simpleControls="clr-namespace:SimpleUI.Controls;assembly=SimpleUI"
         Title="MainWindow1" Height="450" Width="800"
-        ResizeMode="CanMinimize">
+        ResizeMode="CanResize">
 
     <Grid>
         <simpleControls:SimpleToolBar Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Top">

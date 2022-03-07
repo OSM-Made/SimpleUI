@@ -4,16 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleUI
+namespace SimpleUI.Dialogs
 {
     public enum SimpleDialogButton
     {
-        Ok,
-        Close,
-        OkCancel,
-        YesNo,
-        YesNoCancel,
-        AbortRetryIgnore,
-        RetryCancel
-    }
+        None,
+        OneButton,
+        TwoButton,
+        ThreeButton,
+    };
 }

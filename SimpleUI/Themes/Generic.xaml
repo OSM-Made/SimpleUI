@@ -6,7 +6,8 @@
     xmlns:skins="clr-namespace:SimpleUI.Skins">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/SimpleUI;component/Controls/SimpleWindow.xaml"/>
+        <ResourceDictionary Source="/SimpleUI;component/Dialogs/SimpleWindow.xaml"/>
+        <ResourceDictionary Source="/SimpleUI;component/Dialogs/SimpleDialog.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

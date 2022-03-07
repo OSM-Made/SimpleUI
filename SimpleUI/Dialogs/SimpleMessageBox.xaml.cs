@@ -29,7 +29,7 @@ namespace SimpleUI.Controls
             base.Owner = (Window)Owner;
         }
 
-        public SimpleMessageBox(object Owner, string Message, string Title, SimpleMessageBoxIcon Icon, SimpleDialogButton Buttons)
+        public SimpleMessageBox(object Owner, string Message, string Title, SimpleMessageBoxIcon Icon, SimpleMessageBoxButton Buttons)
             : this(Owner)
         {
             this.Message = Message;
@@ -40,41 +40,41 @@ namespace SimpleUI.Controls
         }
 
         public SimpleMessageBox(object Owner, string Message)
-            : this(Owner, Message, string.Empty, SimpleMessageBoxIcon.None, SimpleDialogButton.Ok)
+            : this(Owner, Message, string.Empty, SimpleMessageBoxIcon.None, SimpleMessageBoxButton.Ok)
         { }
 
         public SimpleMessageBox(object Owner, string Message, string Title)
-            : this(Owner, Message, Title, SimpleMessageBoxIcon.None, SimpleDialogButton.Ok)
+            : this(Owner, Message, Title, SimpleMessageBoxIcon.None, SimpleMessageBoxButton.Ok)
         { }
 
-        public SimpleMessageBox(object Owner, string Message, string Title, SimpleDialogButton Buttons)
+        public SimpleMessageBox(object Owner, string Message, string Title, SimpleMessageBoxButton Buttons)
             : this(Owner, Message, Title, SimpleMessageBoxIcon.None, Buttons)
         { }
 
         public SimpleMessageBox(object Owner, string Message, string Title, SimpleMessageBoxIcon Icon)
-            : this(Owner, Message, Title, Icon, SimpleDialogButton.Ok)
+            : this(Owner, Message, Title, Icon, SimpleMessageBoxButton.Ok)
         { }
 
         #endregion
 
         #region Static Methods
 
-        public static SimpleDialogResult ShowInformation(object Owner, string Message, string Title, SimpleDialogButton Buttons = SimpleDialogButton.Ok, WindowStartupLocation StartPosition = WindowStartupLocation.CenterOwner)
+        public static SimpleMessageBoxResult ShowInformation(object Owner, string Message, string Title, SimpleMessageBoxButton Buttons = SimpleMessageBoxButton.Ok, WindowStartupLocation StartPosition = WindowStartupLocation.CenterOwner)
         {
             return ShowDialog(Owner, Message, Title, SimpleMessageBoxIcon.Information, StartPosition, Buttons);
         }
 
-        public static SimpleDialogResult ShowWarning(object Owner, string Message, string Title, SimpleDialogButton Buttons = SimpleDialogButton.Ok, WindowStartupLocation StartPosition = WindowStartupLocation.CenterOwner)
+        public static SimpleMessageBoxResult ShowWarning(object Owner, string Message, string Title, SimpleMessageBoxButton Buttons = SimpleMessageBoxButton.Ok, WindowStartupLocation StartPosition = WindowStartupLocation.CenterOwner)
         {
             return ShowDialog(Owner, Message, Title, SimpleMessageBoxIcon.Warning, StartPosition, Buttons);
         }
 
-        public static SimpleDialogResult ShowError(object Owner, string Message, string Title, SimpleDialogButton Buttons = SimpleDialogButton.Ok, WindowStartupLocation StartPosition = WindowStartupLocation.CenterOwner)
+        public static SimpleMessageBoxResult ShowError(object Owner, string Message, string Title, SimpleMessageBoxButton Buttons = SimpleMessageBoxButton.Ok, WindowStartupLocation StartPosition = WindowStartupLocation.CenterOwner)
         {
             return ShowDialog(Owner, Message, Title, SimpleMessageBoxIcon.Error, StartPosition, Buttons);
         }
 
-        private static SimpleDialogResult ShowDialog(object Owner, string Message, string Title, SimpleMessageBoxIcon Icon, WindowStartupLocation StartPosition, SimpleDialogButton Buttons)
+        private static SimpleMessageBoxResult ShowDialog(object Owner, string Message, string Title, SimpleMessageBoxIcon Icon, WindowStartupLocation StartPosition, SimpleMessageBoxButton Buttons)
         {
             var dlg = new SimpleMessageBox(Owner, Message, Title, Icon, Buttons);
             dlg.WindowStartupLocation = StartPosition;
@@ -158,14 +158,14 @@ namespace SimpleUI.Controls
             }
         }
 
-        public SimpleDialogButton Buttons
+        public SimpleMessageBoxButton Buttons
         {
-            get { return (SimpleDialogButton)GetValue(ButtonsProperty); }
+            get { return (SimpleMessageBoxButton)GetValue(ButtonsProperty); }
             set { SetValue(ButtonsProperty, value); }
         }
 
         public static readonly DependencyProperty ButtonsProperty =
-            DependencyProperty.Register("Buttons", typeof(SimpleDialogButton), typeof(SimpleMessageBox), new PropertyMetadata(SimpleDialogButton.Ok, ButtonsProperty_Changed));
+            DependencyProperty.Register("Buttons", typeof(SimpleMessageBoxButton), typeof(SimpleMessageBox), new PropertyMetadata(SimpleMessageBoxButton.Ok, ButtonsProperty_Changed));
 
         private static void ButtonsProperty_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -178,39 +178,39 @@ namespace SimpleUI.Controls
             ((SimpleMessageBox)d).RetryButton.Visibility = Visibility.Collapsed;
             ((SimpleMessageBox)d).IgnoreButton.Visibility = Visibility.Collapsed;
 
-            switch ((SimpleDialogButton)e.NewValue)
+            switch ((SimpleMessageBoxButton)e.NewValue)
             {
-                case SimpleDialogButton.Ok:
+                case SimpleMessageBoxButton.Ok:
                     ((SimpleMessageBox)d).OkButton.Visibility = Visibility.Visible;
                     break;
 
-                case SimpleDialogButton.Close:
+                case SimpleMessageBoxButton.Close:
                     ((SimpleMessageBox)d).CloseButton.Visibility = Visibility.Visible;
                     break;
 
-                case SimpleDialogButton.OkCancel:
+                case SimpleMessageBoxButton.OkCancel:
                     ((SimpleMessageBox)d).OkButton.Visibility = Visibility.Visible;
                     ((SimpleMessageBox)d).CancelButton.Visibility = Visibility.Visible;
                     break;
 
-                case SimpleDialogButton.YesNo:
+                case SimpleMessageBoxButton.YesNo:
                     ((SimpleMessageBox)d).YesButton.Visibility = Visibility.Visible;
                     ((SimpleMessageBox)d).NoButton.Visibility = Visibility.Visible;
                     break;
 
-                case SimpleDialogButton.YesNoCancel:
+                case SimpleMessageBoxButton.YesNoCancel:
                     ((SimpleMessageBox)d).YesButton.Visibility = Visibility.Visible;
                     ((SimpleMessageBox)d).NoButton.Visibility = Visibility.Visible;
                     ((SimpleMessageBox)d).CancelButton.Visibility = Visibility.Visible;
                     break;
 
-                case SimpleDialogButton.AbortRetryIgnore:
+                case SimpleMessageBoxButton.AbortRetryIgnore:
                     ((SimpleMessageBox)d).AbortButton.Visibility = Visibility.Visible;
                     ((SimpleMessageBox)d).RetryButton.Visibility = Visibility.Visible;
                     ((SimpleMessageBox)d).IgnoreButton.Visibility = Visibility.Visible;
                     break;
 
-                case SimpleDialogButton.RetryCancel:
+                case SimpleMessageBoxButton.RetryCancel:
                     ((SimpleMessageBox)d).RetryButton.Visibility = Visibility.Visible;
                     ((SimpleMessageBox)d).CancelButton.Visibility = Visibility.Visible;
                     break;
@@ -222,14 +222,14 @@ namespace SimpleUI.Controls
             }
         }
 
-        public SimpleDialogResult Result
+        public SimpleMessageBoxResult Result
         {
-            get { return (SimpleDialogResult)GetValue(ResultProperty); }
+            get { return (SimpleMessageBoxResult)GetValue(ResultProperty); }
             set { SetValue(ResultProperty, value); }
         }
 
         public static readonly DependencyProperty ResultProperty =
-            DependencyProperty.Register("Result", typeof(SimpleDialogResult), typeof(SimpleMessageBox), new PropertyMetadata(SimpleDialogResult.None));
+            DependencyProperty.Register("Result", typeof(SimpleMessageBoxResult), typeof(SimpleMessageBox), new PropertyMetadata(SimpleMessageBoxResult.None));
 
         #endregion
 
@@ -237,49 +237,49 @@ namespace SimpleUI.Controls
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
-            Result = SimpleDialogResult.OK;
+            Result = SimpleMessageBoxResult.OK;
             Close();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            Result = SimpleDialogResult.Cancel;
+            Result = SimpleMessageBoxResult.Cancel;
             Close();
         }
 
         private void YesButton_Click(object sender, RoutedEventArgs e)
         {
-            Result = SimpleDialogResult.Yes;
+            Result = SimpleMessageBoxResult.Yes;
             Close();
         }
 
         private void NoButton_Click(object sender, RoutedEventArgs e)
         {
-            Result = SimpleDialogResult.No;
+            Result = SimpleMessageBoxResult.No;
             Close();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            Result = SimpleDialogResult.Cancel;
+            Result = SimpleMessageBoxResult.Cancel;
             Close();
         }
 
         private void AbortButton_Click(object sender, RoutedEventArgs e)
         {
-            Result = SimpleDialogResult.Abort;
+            Result = SimpleMessageBoxResult.Abort;
             Close();
         }
 
         private void RetryButton_Click(object sender, RoutedEventArgs e)
         {
-            Result = SimpleDialogResult.Retry;
+            Result = SimpleMessageBoxResult.Retry;
             Close();
         }
 
         private void IgnoreButton_Click(object sender, RoutedEventArgs e)
         {
-            Result = SimpleDialogResult.Ignore;
+            Result = SimpleMessageBoxResult.Ignore;
             Close();
         }
 
