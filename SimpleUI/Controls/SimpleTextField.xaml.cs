@@ -42,5 +42,14 @@ namespace SimpleUI.Controls
 
         public static readonly DependencyProperty FieldTextProperty =
             DependencyProperty.Register("FieldText", typeof(string), typeof(SimpleTextField), new PropertyMetadata(string.Empty));
+
+        public bool IsReadOnly
+        {
+            get { return (bool)GetValue(IsReadOnlyProperty); }
+            set { SetValue(IsReadOnlyProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsReadOnlyProperty =
+            DependencyProperty.Register("IsReadOnly", typeof(bool), typeof(SimpleTextField), new PropertyMetadata(true));
     }
 }

@@ -7,8 +7,10 @@
         xmlns:simpleControls="clr-namespace:SimpleUI.Controls;assembly=SimpleUI"
         xmlns:simpleDialogs="clr-namespace:SimpleUI.Dialogs;assembly=SimpleUI"
         mc:Ignorable="d"
-        Title="TestDialog" Height="200" Width="400">
+        Title="TestDialog" Height="200" Width="400"
+        ResizeMode="CanResize">
     <Grid>
-
+        <simpleControls:SimpleTextField FieldName="Some Name:" FieldText="Some Text" IsReadOnly="False"
+                                        Width="200" Height="25"/>
     </Grid>
 </simpleDialogs:SimpleDialog>

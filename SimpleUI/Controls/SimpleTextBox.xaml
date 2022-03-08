@@ -1,16 +1,18 @@
 ﻿<TextBox x:Class="SimpleUI.Controls.SimpleTextBox"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SimpleUI.Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="18" d:DesignWidth="50">
+         x:Name="SimpleTextBoxElement"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+         xmlns:local="clr-namespace:SimpleUI.Controls"
+         mc:Ignorable="d" 
+         d:DesignHeight="18" d:DesignWidth="50">
 
     <TextBox.Style>
         <Style TargetType="{x:Type TextBox}">
 
             <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource Text}"/>
             <Setter Property="Background" Value="{DynamicResource TextBoxBackground}"/>
             <Setter Property="BorderBrush" Value="{DynamicResource TextBoxOutline}"/>
 
@@ -24,12 +26,28 @@
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                             </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource TextBoxOutlineFocus}"/>
-                            </Trigger>
-                            <Trigger Property="IsFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource TextBoxOutlineFocus}"/>
-                            </Trigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsFocused, RelativeSource={RelativeSource Self}}" Value="True" />
+                                    <Condition Binding="{Binding IsReadOnly, RelativeSource={RelativeSource Self}}" Value="False" />
+                                    <Condition Binding="{Binding DisableHighlight, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SimpleTextBox}}}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <MultiDataTrigger.Setters>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource TextBoxOutlineFocus}"/>
+                                </MultiDataTrigger.Setters>
+                            </MultiDataTrigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsFocused, RelativeSource={RelativeSource Self}}" Value="True" />
+                                    <Condition Binding="{Binding IsReadOnly, RelativeSource={RelativeSource Self}}" Value="False" />
+                                    <Condition Binding="{Binding DisableHighlight, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SimpleTextBox}}}" Value="False"/>
+                                </MultiDataTrigger.Conditions>
+                                <MultiDataTrigger.Setters>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource TextBoxOutlineFocus}"/>
+                                </MultiDataTrigger.Setters>
+                            </MultiDataTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>

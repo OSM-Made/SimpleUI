@@ -24,5 +24,14 @@ namespace SimpleUI.Controls
         {
             InitializeComponent();
         }
+
+        public bool DisableHighlight
+        {
+            get { return (bool)GetValue(DisableHighlightProperty); }
+            set { SetValue(DisableHighlightProperty, value); }
+        }
+
+        public static readonly DependencyProperty DisableHighlightProperty =
+            DependencyProperty.Register("DisableHighlight", typeof(bool), typeof(SimpleTextBox), new PropertyMetadata(false));
     }
 }

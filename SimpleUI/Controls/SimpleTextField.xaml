@@ -9,6 +9,10 @@
              MinHeight="35"
              d:DesignHeight="35" d:DesignWidth="200">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -21,15 +25,25 @@
                        Foreground="{DynamicResource Text}"
                        Margin="2 0 2 0"/>
 
-        <Viewbox Grid.Row="1"
-                 HorizontalAlignment="Left"
-                 Margin="2">
-            <TextBlock Text="{Binding ElementName=SimpleTextFieldElement, Path=FieldText}"
-                   Foreground="{DynamicResource Text}"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Margin="0 -3 0 0"/>
-        </Viewbox>
+        <Grid Grid.Row="1"
+              Margin="2"
+              HorizontalAlignment="Stretch">
+            <Border Name="BorderElement"
+                HorizontalAlignment="Stretch">
+
+                <local:SimpleTextBox Text="{Binding ElementName=SimpleTextFieldElement, Path=FieldText}"
+                                 Foreground="{DynamicResource Text}"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Center"
+                                 IsReadOnly="{Binding ElementName=SimpleTextFieldElement, Path=IsReadOnly}"
+                                 Margin="0 -3 0 0"
+                                 Width="{Binding ElementName=BorderElement, Path=ActualWidth}"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"
+                                 DisableHighlight="True"/>
+            </Border>
+        </Grid>
+        
     </Grid>
     
 </UserControl>
