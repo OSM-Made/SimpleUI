@@ -8,7 +8,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <skins:SkinResourceDictionary/>
-                <ResourceDictionary Source="/SimpleUI;component/Skins/MyTheme.xaml"/>
+                <ResourceDictionary Source="/SimpleUI;component/Styles/CustomStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

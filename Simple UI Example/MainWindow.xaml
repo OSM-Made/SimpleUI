@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:simpleControls="clr-namespace:SimpleUI.Controls;assembly=SimpleUI"
-        Title="MainWindow1" Height="450" Width="800"
+        Title="MainWindow1" Height="640" Width="960"
         ResizeMode="CanResize">
 
     <Grid>
@@ -49,23 +49,27 @@
             </StackPanel>
         </simpleControls:SimpleToolBar>
 
-        <StackPanel Margin="50">
-            <simpleControls:SimpleCircleProgressBar Name="TestProgress" Width="150" Height="150" ProgressPercentage="55" />
-            <Slider Width="200" ValueChanged="DoSlider" Minimum="0" Maximum="100" ></Slider>
-            <simpleControls:SimpleButton Content="Test Theme" Width="100" Height="50" Click="Button_Click"/>
-            <simpleControls:SimpleSwitch Name="ThemeSwitch" Height="15" MouseDown="SimpleSwitch_MouseDown" IsToggled="True"/>
+        <ScrollViewer Margin="50" Height="200" Width="100"
+                      HorizontalScrollBarVisibility="Auto">
+            <StackPanel>
+                <simpleControls:SimpleCircleProgressBar Name="TestProgress" Width="150" Height="150" ProgressPercentage="55" />
+                <Slider Width="200" ValueChanged="DoSlider" Minimum="0" Maximum="100" ></Slider>
+                <simpleControls:SimpleButton Content="Test Theme" Width="100" Height="50" Click="Button_Click"/>
+                <simpleControls:SimpleSwitch Name="ThemeSwitch" Height="15" MouseDown="SimpleSwitch_MouseDown" IsToggled="True"/>
 
-            <simpleControls:SimpleComboBox Text="Red"
+                <simpleControls:SimpleComboBox Text="Red"
                       Width="60"
                       Height="20">
-                <ComboBoxItem Content = "Red" />
-                <ComboBoxItem Content = "Blue" />
-            </simpleControls:SimpleComboBox>
+                    <ComboBoxItem Content = "Red" />
+                    <ComboBoxItem Content = "Blue" />
+                </simpleControls:SimpleComboBox>
 
-            <simpleControls:SimpleTextBox Width="60" Height="18">
-                
-            </simpleControls:SimpleTextBox>
-        </StackPanel>
+                <simpleControls:SimpleTextBox Width="60" Height="18">
+
+                </simpleControls:SimpleTextBox>
+            </StackPanel>
+            
+        </ScrollViewer>
 
     </Grid>
 
