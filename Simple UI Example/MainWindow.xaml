@@ -49,8 +49,7 @@
             </StackPanel>
         </simpleControls:SimpleToolBar>
 
-        <ScrollViewer Margin="50" Height="200" Width="100"
-                      HorizontalScrollBarVisibility="Auto">
+        <ScrollViewer Margin="50">
             <StackPanel>
                 <simpleControls:SimpleCircleProgressBar Name="TestProgress" Width="150" Height="150" ProgressPercentage="55" />
                 <Slider Width="200" ValueChanged="DoSlider" Minimum="0" Maximum="100" ></Slider>
@@ -58,7 +57,7 @@
                 <simpleControls:SimpleSwitch Name="ThemeSwitch" Height="15" MouseDown="SimpleSwitch_MouseDown" IsToggled="True"/>
 
                 <simpleControls:SimpleComboBox Text="Red"
-                      Width="60"
+                      Width="200"
                       Height="20">
                     <ComboBoxItem Content = "Red" />
                     <ComboBoxItem Content = "Blue" />
