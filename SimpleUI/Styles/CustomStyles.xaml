@@ -3,6 +3,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/SimpleUI;component/Styles/ScrollBar.xaml"/>
+        <ResourceDictionary Source="/SimpleUI;component/Styles/ListView.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
