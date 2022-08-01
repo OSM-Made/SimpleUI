@@ -11,7 +11,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        
+
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Foreground" Value="{DynamicResource Text}" />
         <Setter Property="FontSize" Value="14" />
@@ -60,6 +60,79 @@
                             <Setter Property="Background" Value="#5C5C5C" />
                         </MultiDataTrigger>
                     </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Remove white box. -->
+    <Style x:Key="{x:Static GridView.GridViewScrollViewerStyleKey}"
+           TargetType="{x:Type ScrollViewer}">
+        <Setter Property="Focusable"
+                Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                    <Grid Background="{TemplateBinding Background}"
+                          SnapsToDevicePixels="true">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <!-- Grid.Column="0" Grid.Row="0" -->
+                        <DockPanel Margin="{TemplateBinding Padding}">
+                            <!-- Column Headers Scroll Viewer -->
+                            <ScrollViewer DockPanel.Dock="Top"
+                                          HorizontalScrollBarVisibility="Hidden"
+                                          VerticalScrollBarVisibility="Hidden"
+                                          Focusable="false">
+                                
+                                <!-- Set a Margin here because ListViewItem has a 2-width border around. Otherwise the horizontal scrolling of header bar and item will not keep the same pace -->
+                                <GridViewHeaderRowPresenter Margin="2,0,2,0"
+                                                            Columns="{Binding Path=TemplatedParent.View.Columns,RelativeSource={RelativeSource TemplatedParent}}"
+                                                            ColumnHeaderContainerStyle="{Binding Path=TemplatedParent.View.ColumnHeaderContainerStyle,RelativeSource={RelativeSource TemplatedParent}}"
+                                                            ColumnHeaderTemplate="{Binding Path=TemplatedParent.View.ColumnHeaderTemplate,RelativeSource={RelativeSource TemplatedParent}}"
+                                                            ColumnHeaderTemplateSelector="{Binding Path=TemplatedParent.View.ColumnHeaderTemplateSelector,RelativeSource={RelativeSource TemplatedParent}}"
+                                                            ColumnHeaderStringFormat="{Binding Path=TemplatedParent.View.ColumnHeaderStringFormat,RelativeSource={RelativeSource TemplatedParent}}"
+                                                            AllowsColumnReorder="{Binding Path=TemplatedParent.View.AllowsColumnReorder,RelativeSource={RelativeSource TemplatedParent}}"
+                                                            ColumnHeaderContextMenu="{Binding Path=TemplatedParent.View.ColumnHeaderContextMenu,RelativeSource={RelativeSource TemplatedParent}}"
+                                                            ColumnHeaderToolTip="{Binding Path=TemplatedParent.View.ColumnHeaderToolTip,RelativeSource={RelativeSource TemplatedParent}}"
+                                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                            <!-- Items Scroll Viewer -->
+                            <ScrollContentPresenter Name="PART_ScrollContentPresenter"
+                                                    KeyboardNavigation.DirectionalNavigation="Local"
+                                                    Content="{TemplateBinding Content}"
+                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                    CanContentScroll="{TemplateBinding CanContentScroll}"
+                                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </DockPanel>
+                        <!-- Horizontal Scroll Bar -->
+                        <ScrollBar Name="PART_HorizontalScrollBar"
+                                   Orientation="Horizontal"
+                                   Grid.Row="1"
+                                   Minimum="0.0"
+                                   Maximum="{TemplateBinding ScrollableWidth}"
+                                   ViewportSize="{TemplateBinding ViewportWidth}"
+                                   Value="{Binding Path=HorizontalOffset,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}"
+                                   Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                                   Cursor="Arrow"/>
+                        <!-- Vertical Scroll Bar -->
+                        <ScrollBar Name="PART_VerticalScrollBar"
+                                   Orientation="Vertical"
+                                   Grid.Column="1"
+                                   Minimum="0.0"
+                                   Maximum="{TemplateBinding ScrollableHeight}"
+                                   ViewportSize="{TemplateBinding ViewportHeight}"
+                                   Value="{Binding Path=VerticalOffset,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}"
+                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                   Cursor="Arrow"/>
+                       
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

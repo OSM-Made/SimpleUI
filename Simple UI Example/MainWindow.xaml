@@ -67,7 +67,6 @@
 
                 </simpleControls:SimpleTextBox>
             </StackPanel>
-            
         </ScrollViewer>
 
     </Grid>
