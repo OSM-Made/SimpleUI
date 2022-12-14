@@ -4,8 +4,9 @@
         xmlns:simpleControls="clr-namespace:SimpleUI.Controls;assembly=SimpleUI"
         Title="MainWindow1" Height="640" Width="960"
         ResizeMode="CanResize">
-
+    
     <Grid>
+
         <simpleControls:SimpleToolBar Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Left">
@@ -50,6 +51,23 @@
         </simpleControls:SimpleToolBar>
 
         <ScrollViewer Margin="50">
+            <ScrollViewer.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Menu Item"/>
+                    <MenuItem Header="Checked" IsChecked="True"/>
+                    <MenuItem Header="Disabled" IsEnabled="False"/>
+                    <MenuItem Header="Custom Icon">
+                        <MenuItem.Icon>
+                            <Image VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Stretch="UniformToFill"
+                                   Height="19"
+                                   Margin="0"
+                                   Source="/Resources/Settings.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </ScrollViewer.ContextMenu>
             <StackPanel>
                 <simpleControls:SimpleCircleProgressBar Name="TestProgress" Width="150" Height="150" ProgressPercentage="55" />
                 <Slider Width="200" ValueChanged="DoSlider" Minimum="0" Maximum="100" ></Slider>

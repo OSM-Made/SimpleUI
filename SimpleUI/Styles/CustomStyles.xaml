@@ -4,6 +4,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/SimpleUI;component/Styles/ScrollBar.xaml"/>
         <ResourceDictionary Source="/SimpleUI;component/Styles/ListView.xaml"/>
+        <ResourceDictionary Source="/SimpleUI;component/Styles/ContextMenu.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

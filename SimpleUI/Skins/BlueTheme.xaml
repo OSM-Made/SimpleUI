@@ -55,5 +55,11 @@
     <SolidColorBrush x:Key="ToolBarBackground" Color="#3C3F41"/>
     <SolidColorBrush x:Key="ToolBarSeparationA" Color="#333333"/>
     <SolidColorBrush x:Key="ToolBarSeparationB" Color="#515151"/>
-
+    
+    <!-- ContextMenu Colours -->
+    <SolidColorBrush x:Key="ContextMenuBackground" Color="#45494A"/>
+    <SolidColorBrush x:Key="ContextMenuOutline" Color="#5C5C5C"/>
+    <SolidColorBrush x:Key="ContextMenuSelection" Color="#4C6EB1"/>
+    <SolidColorBrush x:Key="ContextMenuCheckedBackground" Color="#6984BB"/>
+    
 </ResourceDictionary>
