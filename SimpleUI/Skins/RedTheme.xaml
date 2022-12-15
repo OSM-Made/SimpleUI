@@ -62,4 +62,12 @@
     <SolidColorBrush x:Key="ContextMenuSelection" Color="#B04B4B"/>
     <SolidColorBrush x:Key="ContextMenuCheckedBackground" Color="#BA6969"/>
     
+    <!-- ListView Colours -->
+    <SolidColorBrush x:Key="ListViewSelected" Color="#B04B4B"/>
+    <SolidColorBrush x:Key="ListViewBackground" Color="#343638"/>
+
+    <!-- ScrollBar Colours -->
+    <SolidColorBrush x:Key="ScrollBarBackground" Color="#2D2C2E"/>
+    <SolidColorBrush x:Key="ScrollBarSelection" Color="#895454"/>
+    
 </ResourceDictionary>

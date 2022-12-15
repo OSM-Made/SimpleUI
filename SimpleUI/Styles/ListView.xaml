@@ -41,7 +41,7 @@
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="ItemsControl.AlternationIndex"  Value="0">
-                            <Setter Property="Background" Value="#343638" />
+                            <Setter Property="Background" Value="{DynamicResource ListViewBackground}" />
                         </Trigger>
 
                         <MultiDataTrigger>
@@ -49,7 +49,7 @@
                                 <Condition Binding="{Binding IsFocused, RelativeSource={RelativeSource Self}}" Value="True" />
                                 <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="True" />
                             </MultiDataTrigger.Conditions>
-                            <Setter Property="Background" Value="#B04B4B" />
+                            <Setter Property="Background" Value="{DynamicResource ListViewSelected}" />
                         </MultiDataTrigger>
 
                         <MultiDataTrigger>
@@ -57,7 +57,7 @@
                                 <Condition Binding="{Binding IsFocused, RelativeSource={RelativeSource Self}}" Value="False" />
                                 <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="True" />
                             </MultiDataTrigger.Conditions>
-                            <Setter Property="Background" Value="#5C5C5C" />
+                            <Setter Property="Background" Value="{DynamicResource Text}" />
                         </MultiDataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
