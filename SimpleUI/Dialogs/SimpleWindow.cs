@@ -162,6 +162,15 @@ namespace SimpleUI.Controls
 
         #endregion
 
+        public string Mode
+        {
+            get { return (string)GetValue(ModeProperty); }
+            set { SetValue(ModeProperty, value); }
+        }
+
+        public static readonly DependencyProperty ModeProperty =
+            DependencyProperty.Register("Mode", typeof(string), typeof(SimpleWindow), new PropertyMetadata(string.Empty));
+
         public SimpleWindow()
             : base()
         {
