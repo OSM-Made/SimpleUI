@@ -32,11 +32,13 @@
 
                                 <!-- Icon -->
                                 <Image Source="{Binding ElementName=CircleButtonElement, Path=ImagePath}" 
-                                       Width="10" Height="10" Name="img"
+                                       Width="11" Height="11" 
+                                       Name="img"
                                        RenderOptions.BitmapScalingMode="Fant"
                                        RenderOptions.EdgeMode="Aliased"
                                        HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
+                                       VerticalAlignment="Center"
+                                       />
                             </Grid>
 
                             <ControlTemplate.Triggers>
