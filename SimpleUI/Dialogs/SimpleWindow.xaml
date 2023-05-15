@@ -20,7 +20,8 @@
                                     CornerRadius="5"
                                     GlassFrameThickness="-20"  
                                     NonClientFrameEdges="None"
-                                    ResizeBorderThickness="5"/>
+                                    ResizeBorderThickness="5"
+                                    />
             </Setter.Value>
         </Setter>
 
@@ -38,7 +39,7 @@
                         </Grid.Effect>
 
                         <!-- Grid with offset to sho the drop shaddow. -->
-                        <Grid Name="MainGrid" Margin="10">
+                        <Grid Name="MainGrid" Margin="0">
 
                             <!-- Mask to make the corners rounded. -->
                             <Border Name="mask"
@@ -103,69 +104,7 @@
                                 </Grid>
                             </Grid>
 
-                            <!-- Resize Grips -->
-                            <Grid x:Name="resizeGrid">
-                                <Rectangle
-                                    Stroke="{x:Null}"
-                                    Fill="Transparent"
-                                    VerticalAlignment="Top"
-                                    Height="5"
-                                    x:Name="top"
-                                    Margin="5,0,5,0" />
-                                <Rectangle
-                                    Stroke="{x:Null}"
-                                    Fill="Transparent"
-                                    x:Name="bottom"
-                                    Height="5"
-                                    VerticalAlignment="Bottom"
-                                    Margin="5,0,5,0" />
-                                <Rectangle
-                                    Stroke="{x:Null}"
-                                    Fill="Transparent"
-                                    HorizontalAlignment="Left"
-                                    Margin="0,5,0,5"
-                                    Width="5"
-                                    x:Name="left"/>
-                                <Rectangle
-                                    Stroke="{x:Null}"
-                                    Fill="Transparent"
-                                    Margin="0,5,0,5"
-                                    Width="5"
-                                    HorizontalAlignment="Right"
-                                    x:Name="right" />
-                                <Rectangle
-                                    Stroke="{x:Null}"
-                                    Fill="Transparent"
-                                    HorizontalAlignment="Left"
-                                    VerticalAlignment="Bottom"
-                                    Width="5"
-                                    Height="5"
-                                    x:Name="bottomLeft" />
-                                <Rectangle
-                                    Stroke="{x:Null}"
-                                    Fill="Transparent"
-                                    VerticalAlignment="Bottom"
-                                    Height="5"
-                                    Width="5"
-                                    HorizontalAlignment="Right"
-                                    x:Name="bottomRight" />
-                                <Rectangle
-                                    Stroke="{x:Null}"
-                                    Fill="Transparent"
-                                    HorizontalAlignment="Right"
-                                    Width="5"
-                                    Height="5"
-                                    VerticalAlignment="Top"
-                                    x:Name="topRight" />
-                                <Rectangle
-                                    Stroke="{x:Null}"
-                                    Fill="Transparent"
-                                    HorizontalAlignment="Left"
-                                    Width="6"
-                                    VerticalAlignment="Top"
-                                    Height="5"
-                                    x:Name="topLeft" />
-                            </Grid>
+                            
                         </Grid>
                     </Grid>
 
@@ -175,14 +114,11 @@
                         </Trigger>
                         <Trigger Property="ResizeMode" Value="NoResize">
                             <Setter TargetName="restoreButton" Property="Visibility" Value="Collapsed"/>
-                            <Setter TargetName="resizeGrid" Property="IsEnabled" Value="False"/>
+                            <Setter TargetName="MainGrid" Property="Margin" Value="10"/>
                         </Trigger>
 
                         <Trigger Property="WindowState" Value="Maximized">
                             <Setter TargetName="MainGrid" Property="Margin" Value="5"/>
-                        </Trigger>
-                        <Trigger Property="WindowState" Value="Normal">
-                            <Setter TargetName="MainGrid" Property="Margin" Value="10"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
