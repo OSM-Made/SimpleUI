@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SimpleUI.Skins;
 using Simple_UI_Example.Dialogs;
+using System.Drawing;
 
 namespace Simple_UI_Example
 {

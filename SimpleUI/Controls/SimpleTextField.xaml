@@ -31,7 +31,7 @@
             <Border Name="BorderElement"
                 HorizontalAlignment="Stretch">
 
-                <local:SimpleTextBox Text="{Binding ElementName=SimpleTextFieldElement, Path=FieldText}"
+                <local:SimpleTextBox Text="{Binding ElementName=SimpleTextFieldElement, Path=FieldText, UpdateSourceTrigger=PropertyChanged}"
                                  Foreground="{DynamicResource Text}"
                                  HorizontalAlignment="Left"
                                  VerticalAlignment="Center"

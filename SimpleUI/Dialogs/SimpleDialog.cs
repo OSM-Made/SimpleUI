@@ -1,10 +1,7 @@
 ﻿using SimpleUI.Controls;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -28,19 +25,19 @@ namespace SimpleUI.Dialogs
             Close();
         }
 
-        protected void Button1_Click(object sender, RoutedEventArgs e)
+        public virtual void Button1_Click(object sender, RoutedEventArgs e)
         {
             Result = SimpleDialogResult.Button1;
             Close();
         }
 
-        protected void Button2_Click(object sender, RoutedEventArgs e)
+        public virtual void Button2_Click(object sender, RoutedEventArgs e)
         {
             Result = SimpleDialogResult.Button2;
             Close();
         }
 
-        protected void Button3_Click(object sender, RoutedEventArgs e)
+        public virtual void Button3_Click(object sender, RoutedEventArgs e)
         {
             Result = SimpleDialogResult.Button3;
             Close();
