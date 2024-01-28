@@ -1,15 +1,6 @@
-﻿
-using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Interop;
-using System.Windows.Media;
 using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace SimpleUI.Controls
 {
@@ -38,7 +29,28 @@ namespace SimpleUI.Controls
         private void MoveRectangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (Mouse.LeftButton == MouseButtonState.Pressed)
+            {
+                // Allows the window to be dragged while maximized. This will make the window normal and place it at the location of the cursor.
+                if (WindowState == WindowState.Maximized)
+                {
+                    // Store the cursor position relative to the current window
+                    Point cursorPosition = e.GetPosition(this);
+
+                    // Restore window to normal state before dragging
+                    WindowState = WindowState.Normal;
+
+                    // Calculate the scaling factors based on the original fullscreen size and new window size
+                    double xScalingFactor = cursorPosition.X / SystemParameters.PrimaryScreenWidth;
+                    double yScalingFactor = cursorPosition.Y / SystemParameters.PrimaryScreenHeight;
+
+                    // Adjust the window position to match the scaled cursor position
+                    Left = (SystemParameters.PrimaryScreenWidth - ActualWidth) * xScalingFactor;
+                    Top = (SystemParameters.PrimaryScreenHeight - ActualHeight) * yScalingFactor - 10; // Adjust the offset as needed
+                }
+
+                // Window moving action.
                 DragMove();
+            }
         }
 
         #endregion
